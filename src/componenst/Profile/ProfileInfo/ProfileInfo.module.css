@@ -9,3 +9,7 @@ border-radius: 20px;
     width: 1000px;
     height: 200px;
 }
+
+.mainPhoto{
+    max-width: 200px;
+}

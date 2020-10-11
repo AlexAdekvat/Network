@@ -1,58 +1,25 @@
-import React from 'react'
-import s from './Users.module.css'
-import * as axios from 'axios'
-import userPhoto from '../../assets/images/user.png';
-
-class Users extends React.Component {
-
-    componentDidMount() {
-        axios
-            .get("https://social-network.samuraijs.com/api/1.0/users")
-            .then(response => {
-                this.props.setUsers(response.data.items);
-            });
-    }
+import React from 'react';
+import Paginator from '../common/Pagination/Pagination';
+import User from './User';
 
 
 
-    render() {
-        return (
+
+let Users = ({ currentPage, onPageChanged, totalUsersCount, pageSize, Users, ...props }) => {
+
+    return (
+        <div>
+            <Paginator currentPage={currentPage} onPageChanged={onPageChanged}
+                totalItemsCount={totalUsersCount} pageSize={pageSize} />
             <div>
-                {
-                    this.props.Users.map(u => <div key={u.id}>
-                        <span>
-                            <div className={s.userphoto}>
-                                <img src={u.photos.small != null ? u.photos.small : userPhoto} />
-                            </div>
-                            <div>
-                                {u.followed
-                                    ? <button onClick={() => { this.props.follow(u.id) }} >Follow</button>
-                                    : <button onClick={() => { this.props.unfollow(u.id) }}>Unfollow</button>}
-                            </div>
-                        </span>
-                        <span>
-                            <span>
-                                <div>
-                                    {u.name}
-                                </div>
-                                <div>
-                                    {u.status}
-                                </div>
-                            </span>
-                            <span>
-                                <div>
-                                    {"u.location.country"}
-                                </div>
-                                <div>
-                                    {"u.location.city"}
-                                </div>
-                            </span>
-                        </span>
-                    </div>)
+                {Users.map(u => <User user={u}
+                    followingInProgress={props.followingInProgress}
+                    unfollow={props.unfollow}
+                    follow={props.follow}
+                    key={u.id} />)
                 }
             </div>
-        )
-    }
+        </div>
+    )
 }
-
 export default Users;
