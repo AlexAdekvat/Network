@@ -1,13 +1,13 @@
 import * as axios from 'axios'
 import { login } from '../Redux/AuthReduser'
 import { savePhoto } from '../Redux/ProfileReducer'
- import { follow, unfollow } from '../Redux/UsersReducer'
+import { follow, unfollow } from '../Redux/UsersReducer'
 
 const instance = axios.create({
     withCredentials: true,
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
     headers: {
-        "API-KEY": "ab45aaf6-812f-40bb-930d-d6e9c863ab28"
+        "API-KEY": "ab45aaf6-812f-40bb-930d-d6e9c863ab28",
     }
 
 })
@@ -37,12 +37,12 @@ export const UserAPI = {
 export const profileAPI = {
     getProfile(userId) {
         //profile/ + userId (profile is undefided)
-        return instance.get(`profile/`+userId)
+        return instance.get(`profile/` + userId)
     },
-    
+
     getStatus(userId) {
         //profile/status/ + userId (profile is undefided)
-        return instance.get(`profile/status/`+ userId )
+        return instance.get(`profile/status/` + userId)
     },
     updateStatus(status) {
         return instance.put(`profile/status`, { status: status })
@@ -50,11 +50,14 @@ export const profileAPI = {
     savePhoto(photoFile) {
         const formData = new formData()
         formData.append('image', photoFile)
-        return instance.put(`profile/photo/`, formData, {
-            headers:{
+        return instance.put(`/profile/photo`, formData, {
+            headers: {
                 'Content-Type': 'multipart/form-data'
             }
         })
+    },
+    saveProfile(profile) {
+        return instance.put(`profile`, profile)
     }
 }
 

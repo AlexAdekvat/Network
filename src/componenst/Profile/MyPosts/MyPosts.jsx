@@ -7,13 +7,13 @@ import { TextArea } from '../../common/FormControls/FormsControls';
 
 const MyPosts = React.memo((props) => {
 
-    // componentDidMount(){
-    //     setTimeout(()=>{
-    //         this.setState({a:12})
-    //     },3000)}
+    //  componentDidMount(){
+    //      setTimeout(()=>{
+    //          this.setState({a:12})
+    //      },3000)}
 
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     return nextProps != this.props || nextState != this.state
+    // shouldComponentUpdate (nextProps, nextState) {
+    //      return nextProps != this.props || nextState != this.state;
     // }
     
 //удалить позже (87 выпуск)

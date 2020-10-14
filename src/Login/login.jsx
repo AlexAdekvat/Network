@@ -25,9 +25,7 @@ const LoginForm = ({ handleSubmit, error }) => {
         </form>
     )
 }
-const LogimReduxForm = reduxForm({
-    form: 'login'
-})(LoginForm)
+const LogimReduxForm = reduxForm({form: 'login'})(LoginForm)
 
 const Login = (props) => {
 
