@@ -7,6 +7,7 @@ import ProfileDataReduxForm from './ProfileFormData';
 
 
 
+
 const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, saveProfile }) => {
 
     const [editMode, setEditMode] = useState(false)
@@ -16,14 +17,14 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
      }
 
     const onMainPhotoSelected = (e) => {
-        if (!e.target.files.length) {
+        if (e.target.files.length) {
             savePhoto(e.target.files[0]);
         }
     }
-
     const onSubmit=(FormData)=>{
-        saveProfile(FormData);
-        setEditMode(false)
+         saveProfile(FormData).then(()=>{
+            setEditMode(false)
+         })
     }
 
     return (

@@ -38,7 +38,7 @@ let store = {
     },
 
     subscribe(observer) {
-        this._rerenderEntireTree = observer;
+         this._rerenderEntireTree = observer;
     },
 
     dispatch(action) {

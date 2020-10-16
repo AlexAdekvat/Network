@@ -23,6 +23,6 @@ let redusers = combineReducers({
 
 // let store = createStore(redusers, applyMiddleware(thunkMiddlewera));
 
-// window.store = store;
+ window.store = store;
 
 export default store;
