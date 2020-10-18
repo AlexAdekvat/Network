@@ -9,10 +9,10 @@ import { NavLink } from 'react-router-dom';
 let User = ({ user, followingInProgress, unfollow, follow }) => {
 
     return (
-        <div >
+        <div className={s.users}>
             <span>
                 <div className={s.userphoto}>
-                    <NavLink to={'/profile/' + user.id}>
+                    <NavLink to={'/profile/' + user.id} >
                         <img src={user.photos.small != null ? user.photos.small : userPhoto} />
                     </NavLink>
                 </div>

@@ -1,5 +1,15 @@
+
+
 .userphoto img{
     width: 100px;
     border-radius: 50px;
 
 }
+
+.users{
+    display:flex;
+    flex-direction: column;
+}
+/* .userLine{
+    display:flex;
+} */

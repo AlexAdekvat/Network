@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import './App.css';
-import { Route, withRouter } from "react-router-dom";
+import { Redirect, Route, Switch, withRouter } from "react-router-dom";
 import Navbar from './componenst/Navbar/Navbar';
 import UsersContainer from './componenst/Users/UsersContainer';
 import HeaderContainer from './componenst/Header/HeaderContainer';
@@ -21,8 +21,17 @@ const ProfileContainer = React.lazy(() => import('./componenst/Profile/ProfileCo
 
 
 class App extends React.Component {
+  catchAllUnhandleErrors=(promiseRejectionEvent) =>{
+    alert ('Some error occured')
+    //console.error(promiseRejectionEvent)
+  }
   componentDidMount() {
     this.props.initializeApp();
+      window.addEventListener("unhandleError", this.catchAllUnhandleErrors )
+  }
+  componentWillUnmount(){
+    window.removeEventListener("unhandleError", this.catchAllUnhandleErrors )
+
   }
 
   render() {
@@ -35,15 +44,25 @@ class App extends React.Component {
         <HeaderContainer />
         <Navbar />
         <div className='app-wrapper-content'>
-          <Route path='/dialogs'
-            render={ withSuspense (DialogsContainer)} />
-          <Route path='/profile/:userId?'
-            render={ withSuspense(ProfileContainer)} />
-          <Route path='/users'
-            render={() => <UsersContainer />} />
+          <Switch>
+            <Route exact path='/'
+              render={() => <Redirect to={'/profile'} />} />
 
-          <Route path='/login'
-            render={() => <LoginPage />} />
+            <Route path='/dialogs'
+              render={withSuspense(DialogsContainer)} />
+
+            <Route path='/profile/:userId?'
+              render={withSuspense(ProfileContainer)} />
+
+            <Route path='/users'
+              render={() => <UsersContainer />} />
+
+            <Route path='/login'
+              render={() => <LoginPage />} />
+
+            <Route path='*'
+              render={() => <div>404 not found</div>} />
+          </Switch>
         </div>
       </div>
     )
@@ -61,7 +80,7 @@ let AppContainer = compose(withRouter,
 const JsApp = (props) => {
   return (
     <BrowserRouter >
-    {/* <BrowserRouter basename={}> */}
+      {/* <BrowserRouter basename={}> */}
       <Provider store={store}>
         <AppContainer />
       </Provider>
