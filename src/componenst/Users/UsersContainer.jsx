@@ -5,6 +5,7 @@ import Users from './Users';
 import Loader from '../common/preloader/Loader';
 import { compose } from 'redux';
 import { getUser, getPageSize, getTotalUsersCount, getCurrentPage, getIsFetching, getFollowingInProgress, getUserSuperSelector  } from '../../Redux/UsersSelectors';
+import s from './Users.module.css'
 
 
 class UsersContainer extends React.Component {
@@ -24,6 +25,7 @@ class UsersContainer extends React.Component {
         return (
             <>
                 {this.props.isFetching ? <Loader /> : null}
+                <div className={s.test}>
                 <Users totalUsersCount={this.props.totalUsersCount}
                     pageSize={this.props.pageSize}
                     currentPage={this.props.currentPage}
@@ -32,6 +34,7 @@ class UsersContainer extends React.Component {
                     follow={this.props.follow}
                     unfollow={this.props.unfollow}
                     followingInProgress={this.props.followingInProgress} />
+                    </div>
             </>
         )
     }

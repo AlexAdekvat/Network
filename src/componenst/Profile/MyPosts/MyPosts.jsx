@@ -21,6 +21,7 @@ const MyPosts = React.memo((props) => {
     let postsElements =
         [...props.PostData]
         //.reverse()
+        // .map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount} smallPhoto={props.profile.photos.small }/>);
         .map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount} />);
 
     let newPostElement = React.createRef();
@@ -31,10 +32,12 @@ const MyPosts = React.memo((props) => {
 
     return (
         <div className={s.postsBlock}>
-            <h3>My posts</h3>
+            <h3 className={s.myPost}>My posts</h3>
             <AddNewPostRedux onSubmit={onAddPost} />
-            <div className={s.PostData}>
+            <div className={s.postData}>
+                {/* <div className={s.postDataChild}> */}
                 {postsElements}
+                {/* </div> */}
             </div>
         </div>
     )
@@ -44,10 +47,10 @@ const maxLength10 = maxLengthCreator(10);
 
 const AddNewPost = (props) => {
     return (
-        <form onSubmit={props.handleSubmit} >
-            <Field component={TextArea} name="posts" validate={[required, maxLength10]} placeholder="post"/> 
+        <form onSubmit={props.handleSubmit} className={s.form} >
+            <Field className={s.textAria} component={TextArea} name="posts" validate={[required, maxLength10]} placeholder="post"/> 
             <div>
-                <button>Add post</button>
+                <button className={s.btn}>Add post</button>
             </div>
         </form>
     )

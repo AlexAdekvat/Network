@@ -11,6 +11,8 @@ let initialState = {
     PostData: [
         { id: 1, message: 'Hello my name AlexAdekvat', likesCount: 1 },
         { id: 2, message: ' It is my first page', likesCount: 12 },
+        { id: 3, message: ' It is my first page', likesCount: 12 },
+        { id: 4, message: ' It is my first page', likesCount: 12 },
     ],
     profile: null,
     status: "",

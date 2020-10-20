@@ -1,15 +1,47 @@
-
+.wrapper{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
 
 .userphoto img{
-    width: 100px;
+      padding: 20px;   
+    width: 120px;
     border-radius: 50px;
+    
 
 }
+
 
 .users{
-    display:flex;
-    flex-direction: column;
+     margin:  0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start; 
+    justify-content: space-between; 
+
+    
 }
-/* .userLine{
+
+
+.usersInfo{
+    border: 1px solid red;   
+    margin-bottom: 20px;
+    background: rgb(221, 216, 216);
+}
+
+.nick{
+    margin-top: -10px;
+    display: flex;
+    justify-content: center;
+}
+.button{
     display:flex;
-} */
+    justify-content: center;
+}
+.follow{
+    margin-bottom: 10px;
+    background: rgb(130, 13, 35);
+    border-radius: 10px;
+
+}

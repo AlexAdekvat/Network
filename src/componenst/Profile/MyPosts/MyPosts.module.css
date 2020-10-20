@@ -1,7 +1,41 @@
 .postsBlock {
     padding: 10px;
-    }
+    background-color: grey;
+}
     
-    .posts {
-    margin-top: 10px;
+
+ .postData{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+} 
+
+.textAria{
+    resize: none;
+    height: 80px;
+    width: 500px;
+    border-radius: 10px;
+    border:2px solid #e97638;
+
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.myPost{
+    text-align: center;
+}
+.btn {
+    background: #e97638;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font: 600 16px 'Poppins', sans-serif;
+    margin: 1rem;
+    outline: none;
+    padding: 10px 10px;
+    vertical-align: middle;
+    cursor: pointer;
     }
