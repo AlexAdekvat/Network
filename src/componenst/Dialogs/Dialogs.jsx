@@ -27,15 +27,10 @@ const Dialogs = (props) => {
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                {dialogsElements}
+                <div className={s.friend}> {dialogsElements}</div>
+                <div className={s.messages}>{messageElements}</div>
             </div>
-            <div className={s.messages}>
-                <div>
-                    {messageElements}
-                </div>
-
-            </div>
-            <AddMessageFormRedux onSubmit={addNewMessage}/>
+            <AddMessageFormRedux onSubmit={addNewMessage} />
         </div>
     )
 }
@@ -45,17 +40,19 @@ const maxLength50 = maxLengthCreator(50)
 
 const AddMessageForm = (props) => {
     return (
-        <form onSubmit={props.handleSubmit}  >
-            <div>
-                <Field component={TextArea} validate={[required, maxLength50]}
-                 name="newMessageBody" placeholder="Enter your message" />
-            </div>
-            <div>
-                <button>Send</button></div>
-        </form>
+        <div className={s.container}>
+            <form onSubmit={props.handleSubmit}  >
+                <Field className={s.textArea} component={TextArea} validate={[required, maxLength50]}
+                    name="newMessageBody" placeholder="Enter your message" />
+
+                <div className={s.send}>
+                    <button className={s.btn}>Send</button></div>
+            </form>
+        </div>
     )
 }
 
 const AddMessageFormRedux = reduxForm({ form: "dialogAddMessage" })(AddMessageForm)
 
 export default Dialogs;
+

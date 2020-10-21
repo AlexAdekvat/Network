@@ -1,5 +1,6 @@
 .descriptionBlock {
    padding: 10px;
+   box-shadow: 0 0 15px rgba(43, 41, 41, 0.5);
 }
 
 .mainPhoto{
@@ -52,11 +53,7 @@
     display: flex;
     justify-content: center;
 }
-/* .aboutMe{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-} */
+
 .infoMe{
     display: flex;
     flex-direction: row;
@@ -84,11 +81,15 @@
     border: none;
     border-radius: 10px;
     color: #fff;
-    font: 600 16px 'Poppins', sans-serif;
+    font: 600 14px 'Bradley Hand', cursive;
     margin: 1rem;
     outline: none;
     padding: 10px 10px;
     vertical-align: middle;
     cursor: pointer;
-    }
+}
+
+.edit:hover, .save:hover{
+    background: rgb(240, 60, 6);
+}
 

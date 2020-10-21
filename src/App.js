@@ -13,6 +13,9 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
 import store from "./Redux/ReduxStore";
 import { withSuspense } from './HOC/withSuspense';
+import Settings from './Settings/Settings';
+import News from './News/News';
+import Music from './Music/Music';
 
 const DialogsContainer = React.lazy(() => import('./componenst/Dialogs/DialogsContainer'))
 const ProfileContainer = React.lazy(() => import('./componenst/Profile/ProfileContainer'))
@@ -21,16 +24,16 @@ const ProfileContainer = React.lazy(() => import('./componenst/Profile/ProfileCo
 
 
 class App extends React.Component {
-  catchAllUnhandleErrors=(promiseRejectionEvent) =>{
-    alert ('Some error occured')
+  catchAllUnhandleErrors = (promiseRejectionEvent) => {
+    alert('Some error occured')
     //console.error(promiseRejectionEvent)
   }
   componentDidMount() {
     this.props.initializeApp();
-      window.addEventListener("unhandleError", this.catchAllUnhandleErrors )
+    window.addEventListener("unhandleError", this.catchAllUnhandleErrors)
   }
-  componentWillUnmount(){
-    window.removeEventListener("unhandleError", this.catchAllUnhandleErrors )
+  componentWillUnmount() {
+    window.removeEventListener("unhandleError", this.catchAllUnhandleErrors)
 
   }
 
@@ -59,6 +62,13 @@ class App extends React.Component {
 
             <Route path='/login'
               render={() => <LoginPage />} />
+
+            <Route path='/news' component={News} />
+            
+            <Route path='/music' component={Music} />
+
+            <Route path='/settings' component={Settings} />
+
 
             <Route path='*'
               render={() => <div>404 not found</div>} />

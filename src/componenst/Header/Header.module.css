@@ -1,15 +1,52 @@
 .header {
     grid-area: h;
-    background-color: green;
+    background: linear-gradient(to bottom, #cc0606, #f06a22);
+    border-bottom: 5px solid rgb(128, 127, 127);
+    box-shadow: 0 0 25px rgba(43, 41, 41, 0.5);
+}
+
+.exit{
+    display: flex;  
+}
+
+.name{
+    font: 500 16px 'Bradley Hand', cursive;
+    padding-top: 10px;
+    padding-right: 5px;
 }
 
 .header img {
-    width: 20px;
+    width: 60px;
+    height: 50px;
 }
 
 .loginBlock{
     float:right;
 }
 .loginBlock a {
-    color:white
+    color:white;
+    text-decoration: none;
+}
+.btn{
+    margin-bottom: 15px;
+    
+    background: #e97638;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font: 600 14px 'Bradley Hand', cursive;
+    margin: 0.5rem;
+    outline: none;
+    padding: 5px 10px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.btn:hover{
+    background: rgb(55, 54, 54);
+}
+.signIn{
+    padding: 5px;
+    border-bottom:2px solid rgb(177, 31, 41);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(43, 41, 41, 0.5);
 }

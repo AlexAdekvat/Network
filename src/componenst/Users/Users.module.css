@@ -2,16 +2,14 @@
     display: flex;
     justify-content: center;
     padding: 10px;
+
 }
 
 .userphoto img{
       padding: 20px;   
     width: 120px;
     border-radius: 50px;
-    
-
 }
-
 
 .users{
      margin:  0 20px;
@@ -19,15 +17,15 @@
     flex-wrap: wrap;
     align-content: flex-start; 
     justify-content: space-between; 
-
-    
 }
 
-
 .usersInfo{
-    border: 1px solid red;   
+    border: 1px solid rgb(255, 255, 255);   
     margin-bottom: 20px;
-    background: rgb(221, 216, 216);
+    background: rgb(255, 255, 255);  
+    box-shadow: 0 0 10px rgba(43, 41, 41, 0.5);
+    border-radius: 10px;
+    
 }
 
 .nick{
@@ -39,9 +37,21 @@
     display:flex;
     justify-content: center;
 }
+
 .follow{
     margin-bottom: 10px;
-    background: rgb(130, 13, 35);
+    
+    background: #e97638;
+    border: none;
     border-radius: 10px;
-
+    color: #fff;
+    font: 600 14px 'Bradley Hand', cursive;
+    margin: 1rem;
+    outline: none;
+    padding: 5px 10px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.follow:hover{
+    background: rgb(240, 60, 6);
 }

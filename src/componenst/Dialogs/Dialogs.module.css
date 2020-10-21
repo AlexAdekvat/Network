@@ -1,21 +1,66 @@
-.dialogs {
-    display: grid;
-    grid-template-columns: 2fr 10fr;
-    }
-    
-    .dialogsItems {
+.dialogsItems{
+    display: flex;
+    justify-content: space-around;
     padding: 10px;
-    color: white;
-    }
-    
-    .dialogsItems .active {
-    color: gold;
-    }
-    
-    .messages {
+}
+.dialogsItems a:link, .dialogsItems a:visited{
+    text-decoration: none;
+    color: black;
+}
+
+.dialog img{
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+}
+.dialog{
     padding: 10px;
-    }
+    font: 500 16px 'Bradley Hand', cursive;
+
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+.message{
+    padding: 29px;
+    font: 500 16px 'Bradley Hand', cursive;
+
+}
+.textArea{
+    margin-top: 35px;
+    width: 500px;
+    height: 100px;
+    resize: none;
+    text-align: center;
+    border-radius: 10px;
+    border:2px solid #e97638;
+    box-shadow: 0 0 10px rgba(43, 41, 41, 0.5);
+    font: 600 14px 'Bradley Hand', cursive;
+}
+
+.btn{
+    margin-bottom: 10px;
     
-    .messages .message {
-    color: white;
-    }
+    background: #e97638;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font: 600 14px 'Bradley Hand', cursive;
+    margin: 1rem;
+    outline: none;
+    padding: 5px 10px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.btn:hover{
+    background: rgb(240, 60, 6);
+}
+.send{
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
+
+

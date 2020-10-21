@@ -10,9 +10,7 @@ const SET_SAVE_PHOTO = 'SET_SAVE_PHOTO'
 let initialState = {
     PostData: [
         { id: 1, message: 'Hello my name AlexAdekvat', likesCount: 1 },
-        { id: 2, message: ' It is my first page', likesCount: 12 },
-        { id: 3, message: ' It is my first page', likesCount: 12 },
-        { id: 4, message: ' It is my first page', likesCount: 12 },
+        { id: 2, message: ' It is my first page', likesCount: 12 }
     ],
     profile: null,
     status: "",
@@ -93,12 +91,29 @@ export const saveProfile = (profile) => async (dispatch, getState) => {
     if (response.data.resultCode === 0) {
         dispatch(getUserProfile(userId));
     } else {
-        //error for input "facebook"
-        // dispatch(stopSubmit( "edit-profile", {"contacts": {"facebook":response.data.messages[0]} }))
-        dispatch(stopSubmit("edit-profile", { _error: response.data.messages[0] } ))
-        return Promise.reject( response.data.messages[0] )
+        // //error for input "all contacts"
+          dispatch(stopSubmit( "edit-profile", {"contacts": {"facebook":response.data.messages[0]} }))
+          dispatch(stopSubmit( "edit-profile", {"contacts": {"website":response.data.messages[0]} }))
+          dispatch(stopSubmit( "edit-profile", {"contacts": {"vk":response.data.messages[0]} }))
+          dispatch(stopSubmit( "edit-profile", {"contacts": {"twitter":response.data.messages[0]} }))
+          dispatch(stopSubmit( "edit-profile", {"contacts": {"instagram":response.data.messages[0]} }))
+          dispatch(stopSubmit( "edit-profile", {"contacts": {"youtube":response.data.messages[0]} }))
+          dispatch(stopSubmit( "edit-profile", {"contacts": {"github":response.data.messages[0]} }))
+          dispatch(stopSubmit( "edit-profile", {"contacts": {"mainLink":response.data.messages[0]} }))
 
-}
+          //для всех одна ошибка
+
+        //dispatch(stopSubmit("edit-profile", { _error: response.data.messages[0] } ))
+        
+        //решение из комментариев
+
+        //  let key = response.data.messages[0].match(/Contacts->(\w+)/)[1].toLowerCase();
+        //  dispatch(stopSubmit('editProfile', {
+        //     "contacts": { [key]: response.data.messages[0] },
+        //  }));
+        return Promise.reject(response.data.messages[0])
+
+    }
 }
 
 export default profileReducer;

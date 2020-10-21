@@ -1,6 +1,8 @@
 .postsBlock {
     padding: 10px;
-    background-color: grey;
+    border-top: 7px solid rgb(128, 127, 127);
+    box-shadow: 0 0 15px rgba(43, 41, 41, 0.5);
+
 }
     
 
@@ -17,7 +19,8 @@
     width: 500px;
     border-radius: 10px;
     border:2px solid #e97638;
-
+    box-shadow: 0 0 10px rgba(43, 41, 41, 0.5);
+    font: 600 14px 'Bradley Hand', cursive;
 }
 .form{
     display: flex;
@@ -26,16 +29,20 @@
 }
 .myPost{
     text-align: center;
+    color: rgb(0, 0, 0);
 }
 .btn {
     background: #e97638;
     border: none;
     border-radius: 10px;
     color: #fff;
-    font: 600 16px 'Poppins', sans-serif;
+    font: 600 14px 'Bradley Hand', cursive;
     margin: 1rem;
     outline: none;
-    padding: 10px 10px;
+    padding: 7px 10px;
     vertical-align: middle;
     cursor: pointer;
-    }
+}
+.btn:hover{
+    background: rgb(240, 60, 6);
+}

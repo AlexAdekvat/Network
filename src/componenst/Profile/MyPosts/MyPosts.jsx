@@ -4,27 +4,17 @@ import Post from './Post/Post';
 import { Field, reduxForm } from 'redux-form';
 import {required, maxLengthCreator} from '../../../Utils/Validators'
 import { TextArea } from '../../common/FormControls/FormsControls';
+import Loader from '../../common/preloader/Loader';
 
 const MyPosts = React.memo((props) => {
 
-    //  componentDidMount(){
-    //      setTimeout(()=>{
-    //          this.setState({a:12})
-    //      },3000)}
+    if(!props.profile){
+        return <Loader/>
+    }
 
-    // shouldComponentUpdate (nextProps, nextState) {
-    //      return nextProps != this.props || nextState != this.state;
-    // }
-    
-//удалить позже (87 выпуск)
+    let postsElements = [...props.PostData]
+    .map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount} smallPhoto={props.profile.photos.small }/>);
 
-    let postsElements =
-        [...props.PostData]
-        //.reverse()
-        // .map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount} smallPhoto={props.profile.photos.small }/>);
-        .map(p => <Post key={p.id} message={p.message} likesCount={p.likesCount} />);
-
-    let newPostElement = React.createRef();
 
     let onAddPost = (values) => {
         props.addPost(values.posts);
@@ -35,9 +25,7 @@ const MyPosts = React.memo((props) => {
             <h3 className={s.myPost}>My posts</h3>
             <AddNewPostRedux onSubmit={onAddPost} />
             <div className={s.postData}>
-                {/* <div className={s.postDataChild}> */}
                 {postsElements}
-                {/* </div> */}
             </div>
         </div>
     )
@@ -48,7 +36,7 @@ const maxLength10 = maxLengthCreator(10);
 const AddNewPost = (props) => {
     return (
         <form onSubmit={props.handleSubmit} className={s.form} >
-            <Field className={s.textAria} component={TextArea} name="posts" validate={[required, maxLength10]} placeholder="post"/> 
+            <Field className={s.textAria} component={TextArea} name="posts" validate={[required, maxLength10]} placeholder="Anythig new?"/> 
             <div>
                 <button className={s.btn}>Add post</button>
             </div>

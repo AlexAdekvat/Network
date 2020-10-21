@@ -11,3 +11,43 @@ color:red
     padding: 5px;
     color: red;
 }
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.word{
+    text-align: center;
+    font: 600 17px 'Times', serif;
+
+}
+.btn{
+    margin-bottom: 10px;
+    background: #e97638;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font: 600 14px 'Bradley Hand', cursive;
+    margin: 1rem;
+    outline: none;
+    padding: 5px 10px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.btn:hover{
+    background: rgb(240, 60, 6);
+}
+.submit{
+    padding-bottom: 15px;
+}
+.field{
+    margin: 10px;
+    padding: 7px;
+    padding-right: 60px;
+    border-radius: 10px;
+    border:2px solid #e97638;
+    resize: none;
+}
+.login{
+    font: 600 14px 'Bradley Hand', cursive;
+}

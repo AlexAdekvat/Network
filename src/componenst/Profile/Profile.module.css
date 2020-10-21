@@ -2,7 +2,6 @@
     width: 1000px;
     height: 300px;
 }
-/* .profile{
-    display: flex;
-    justify-content: space-between;
-} */
+.background{
+    box-shadow: 0 0 35px rgba(43, 41, 41, 0.5);
+}

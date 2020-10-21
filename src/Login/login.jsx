@@ -8,29 +8,41 @@ import { Redirect } from 'react-router-dom';
 import styles from "./../componenst/common/FormControls/FormsControls.module.css";
 
 
-
 const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
     return (
-        <form onSubmit={handleSubmit}>
-            {createField("email", "email", Input, [required])}
-            {createField("password", "password", Input, [required], { type: "password" })}
-            {createField(null, "rememberMe", Input, null, { type: "checkbox" }, "Remember me")}
+        <div className={styles.wrapper} >
+            <div className={styles.word}>
+                <p>Чтобы посмотреть и протестировать приложение введите данные тестового аккаунта</p>
+                <p>Email: test.social.network@mail.ru</p>
+                <p>Password: free</p>
+                <div className={styles.login}>
+                    <h1>Login</h1>
+                </div>
 
-            {captchaUrl && <img src={captchaUrl}/> }
-            {captchaUrl && createField("Symbols", "captcha", Input, [required], {})}
+                <form onSubmit={handleSubmit}>
+                    {createField("email", "email", Input, [required])}
+                    {createField("password", "password", Input, [required], { type: "password" })}
+                    {/* {createField(null, "rememberMe", Input, null, { type: "checkbox" }, "Remember me")} */}
 
-            {error && < div className={styles.formSummaryError} >
-                {error}
-            </div>}
-            <div>
-                <button>Login</button>
+                    {captchaUrl && <img src={captchaUrl} />}
+                    {captchaUrl && createField("Symbols", "captcha", Input, [required], {})}
+
+                    {error && < div className={styles.formSummaryError} >
+                        {error}
+                    </div>}
+                    <div className={styles.submit}>
+                        <button className={styles.btn}>Submit</button>
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     )
 }
-const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
+const LoginReduxForm = reduxForm({ form: 'login' })(LoginForm)
 
 const Login = (props) => {
+
+
 
     const onSubmit = (formData) => {
         props.login(formData.email, formData.password, formData.rememberMe, formData.captcha)
@@ -40,9 +52,8 @@ const Login = (props) => {
         return <Redirect to={'/profile'} />
     }
 
-    return <div>
-        <h1>login</h1>
-        <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
+    return <div  >
+        <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
     </div>
 }
 

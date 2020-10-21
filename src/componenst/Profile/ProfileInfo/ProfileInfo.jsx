@@ -6,8 +6,6 @@ import userPhoto from '../../../assets/images/user.png';
 import ProfileDataReduxForm from './ProfileFormData';
 
 
-
-
 const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, saveProfile }) => {
 
     const [editMode, setEditMode] = useState(false)

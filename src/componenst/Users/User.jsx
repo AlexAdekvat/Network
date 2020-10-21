@@ -10,7 +10,6 @@ let User = ({ user, followingInProgress, unfollow, follow }) => {
 
     return (
         <div className={s.usersInfo}>
-            <div className={s.test}>
                 <div className={s.userphoto}>
                     <NavLink to={'/profile/' + user.id} >
                         <img src={user.photos.small != null ? user.photos.small : userPhoto} />
@@ -29,17 +28,6 @@ let User = ({ user, followingInProgress, unfollow, follow }) => {
                             Follow</button>}
 
                 </div>
-            </div>
-            <span className={s.nameStatus}>
-                <span >
-                    <div></div>
-                    {/* <div>{user.status}</div> */}
-                </span>
-                {/* <span>
-                    <div>{"u.location.country"}</div>
-                    <div>{"u.location.city"}</div>
-                </span> */}
-            </span>
         </div>
     )
 
